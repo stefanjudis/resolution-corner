@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import ReactGoogleAuth from 'react-google-auth';
 import logo from './logo.svg';
 import './App.css';
+
 
 class App extends Component {
   render() {
@@ -25,4 +27,29 @@ class App extends Component {
   }
 }
 
-export default App;
+
+function SignIn(props) {
+  if(props.initializing) {
+      return <div className="Text Text-emphasis">Initializing...</div>;
+  }
+  if(props.error) {
+      console.log('Error', props.error);
+      return <div className="Text Text-strong">Error!</div>;
+  }
+  return <div>
+      <button className="Button Button-primary" onClick={props.onSignInClick}>Sign in</button>
+      {props.signingIn && <div>Signing in...</div>}
+  </div>;
+}
+
+function Loader(props) {
+  return <div>Loading...</div>;
+}
+
+export default ReactGoogleAuth({
+  clientId: "765507442514-21tl4cetch1tl4823m2ekjcr6dejsd45.apps.googleusercontent.com ",
+  // discoveryDocs: ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
+  loader: Loader,
+  scope: "https://www.googleapis.com/auth/drive.appdata",
+  signIn: SignIn
+})(App);
