@@ -50,6 +50,6 @@ export default ReactGoogleAuth({
   clientId: "765507442514-21tl4cetch1tl4823m2ekjcr6dejsd45.apps.googleusercontent.com",
   // discoveryDocs: ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
   loader: Loader,
-  scope: "https://www.googleapis.com/auth/drive",
+  scope: "https://www.googleapis.com/auth/drive.appdata",
   signIn: SignIn
 })(App);
