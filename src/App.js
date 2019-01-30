@@ -6,6 +6,7 @@ import './App.css';
 
 class App extends Component {
   render() {
+    console.log(window.gapi);
     return (
       <div className="App">
         <header className="App-header">
