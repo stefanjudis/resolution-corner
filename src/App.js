@@ -21,6 +21,7 @@ class App extends Component {
           >
             Learn React
           </a>
+          <button onClick={this.props.onSignOutClick}>Sign out</button>
         </header>
       </div>
     );
